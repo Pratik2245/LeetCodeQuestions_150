@@ -1,8 +1,27 @@
+import java.util.List;
+
 public class LT_148SortList {
     public static void main(String[] args) {
+        ListNode head = new ListNode(4);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(3);
 
+        // Call sort
+        head = sortList(head);
+
+        // Print sorted list
+        printList(head);
     }
-    public ListNode sortList(ListNode head) {
+    public static void printList(ListNode head) {
+        ListNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+    public static ListNode sortList(ListNode head) {
         if(head==null || head.next==null)
             return head;
         ListNode mid=getMid(head);
